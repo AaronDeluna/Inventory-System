@@ -25,7 +25,7 @@
 
 Чтобы добавить продукт, используйте метод `addProduct`. Пример:
 ```java
-Product newProduct = new Product(1, "Laptop", 999.99, 10);
+Product newProduct = new Product(Product.generateId(), "Laptop", 999.99, 10);
 inventory.addProduct(newProduct);
 ```
 
