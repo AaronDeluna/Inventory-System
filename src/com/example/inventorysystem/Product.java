@@ -5,15 +5,19 @@ public class Product {
     private String name;
     private double price;
     private int quantity;
+    public static int totalProducts = 0;
+    public static int nextId = 0;
 
     public Product() {
+        totalProducts++;
     }
 
     public Product(int id, String name, double price, int quantity) {
-        this.id = id;
+        this.id = id + 1;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
+        totalProducts++;
     }
 
     public int getId() {
@@ -46,6 +50,10 @@ public class Product {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public static int generateId() {
+        return nextId++;
     }
 
     @Override

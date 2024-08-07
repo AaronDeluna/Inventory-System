@@ -8,7 +8,7 @@ public class Inventory {
     private Product[] products = new Product[arraySize];
     Scanner scanner = new Scanner(System.in);
 
-    // добавляет новый товар в инвентарь
+    //Добавляет новый товар
     public void addProduct(Product product) {
         if (count == products.length) {
             arraySize = arraySize * 2;
@@ -78,11 +78,19 @@ public class Inventory {
         System.out.println("Товар не найден!");
     }
 
-    //    удаляет товар по его id
-    public void removeProduct(int id) {
-
+    //Удаляет товар по его id
+    public void removeProduct(int productId) {
+        for (int i = 0; i < products.length; i++) {
+            if (productId == products[i].getId()) {
+                System.out.printf("Товар: %s, успешно удален!\n", products[i].getName());
+                products[i] = null;
+                Product.totalProducts--;
+                break;
+            }
+        }
     }
 
+    //Показывает все товары
     public void listAllProducts() {
         for (Product product : products) {
             if (product != null) {
